@@ -1,25 +1,3 @@
-<!-----
-
-
-
-Conversion time: 0.756 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β35
-* Sun Feb 25 2024 17:11:02 GMT-0800 (PST)
-* Source doc: KYC360_rahul_assignment_2
------>
-
-
 **Documentation: KYC360 Assignment - REST API**
 
 **Rahul Maurya**
@@ -28,11 +6,11 @@ Conversion notes:
 
 **Challenges completed:**
 
+- Base Challenge
 
+- Bonus Challenge 1
 
-* Base Challenge
-* Bonus Challenge 1
-* Bonus Challenge 2
+- Bonus Challenge 2
 
 **Usage:**
 
@@ -50,21 +28,27 @@ This endpoint retrieves a list of entities based on specified query parameters.
 
 **Query Parameters:**
 
+- Search: Search string to filter entities based on various fields.
 
+- Gender: Gender of the entity to filter.
 
-* Search: Search string to filter entities based on various fields.
-* Gender: Gender of the entity to filter.
-* StartDate: Start date for filtering entities by the Date_T field.
-* EndDate: End date for filtering entities by the Date_T field.
-* Countries: List of countries to filter entities by the Country field.
-* Page Number: Page number.
-* PageSize: Number of entities to include per page.
-* SortBy: Field to sort entities by.
-* SortOrder: Sorting order (Ascending or Descending).
+- StartDate: Start date for filtering entities by the Date\_T field.
+
+- EndDate: End date for filtering entities by the Date\_T field.
+
+- Countries: List of countries to filter entities by the Country field.
+
+- Page Number: Page number.
+
+- PageSize: Number of entities to include per page.
+
+- SortBy: Field to sort entities by.
+
+- SortOrder: Sorting order (Ascending or Descending).
 
 **Example Request:**
 
-GET /api/TestAPI?Search=bob&Gender=Male&StartDate=2022-01-01&EndDate=2023-12-31&Countries=USA,Canada&PageNumber=1&PageSize=10&SortBy=FirstName&SortOrder=Ascending
+GET /api/TestAPI?Search=bob\&Gender=Male\&StartDate=2022-01-01\&EndDate=2023-12-31\&Countries=USA,Canada\&PageNumber=1\&PageSize=10\&SortBy=FirstName\&SortOrder=Ascending
 
 **2. Fetching a Single Entity**
 
@@ -78,9 +62,7 @@ This endpoint retrieves a single entity by its ID.
 
 **Path Parameters:**
 
-
-
-* id: ID of the entity to retrieve.
+- id: ID of the entity to retrieve.
 
 **Example Request:**
 
@@ -98,9 +80,7 @@ This endpoint creates a new entity.
 
 **Request Body:**
 
-
-
-* JSON object representing the entity to be created.
+- JSON object representing the entity to be created.
 
 **Example Request:**
 
@@ -110,35 +90,35 @@ Content-Type: application/json
 
 {
 
- "name": {
+ "name": {
 
- "FirstName": "John",
+ "FirstName": "John",
 
- "MiddleName": "Doe",
+ "MiddleName": "Doe",
 
- "Surname": "Smith"
+ "Surname": "Smith"
 
- },
+ },
 
- "gender": "Male",
+ "gender": "Male",
 
- "address": {
+ "address": {
 
- "AddressLine": "123 Main St",
+ "AddressLine": "123 Main St",
 
- "City": "Anytown",
+ "City": "Anytown",
 
- "Country": "USA"
+ "Country": "USA"
 
- },
+ },
 
- "date": {
+ "date": {
 
- "DateType": "Birth",
+ "DateType": "Birth",
 
- "Date_T": "1985-06-15T00:00:00"
+ "Date\_T": "1985-06-15T00:00:00"
 
- }
+ }
 
 }
 
@@ -154,17 +134,13 @@ This endpoint updates an existing entity.
 
 **Path Parameters:**
 
+- id: ID of the entity to update.
 
-
-* id: ID of the entity to update.
-
-
+********
 
 **Request Body:**
 
-
-
-* JSON object representing the updated entity data.
+- JSON object representing the updated entity data.
 
 **Example Request:**
 
@@ -174,37 +150,37 @@ Content-Type: application/json
 
 {
 
-  "address": {
+  "address": {
 
-    "addressLine": "string",
+    "addressLine": "string",
 
-    "city": "string",
+    "city": "string",
 
-    "country": "string"
+    "country": "string"
 
-  },
+  },
 
-  "date": {
+  "date": {
 
-    "dateType": "string",
+    "dateType": "string",
 
-    "date_T": "2024-02-25T23:22:29.086Z"
+    "date\_T": "2024-02-25T23:22:29.086Z"
 
-  },
+  },
 
-  "name": {
+  "name": {
 
-    "firstName": "string",
+    "firstName": "string",
 
-    "middleName": "string",
+    "middleName": "string",
 
-    "surname": "string"
+    "surname": "string"
 
-  },
+  },
 
-  "gender": "string",
+  "gender": "string",
 
-  "id": 0
+  "id": 0
 
 }
 
@@ -220,94 +196,91 @@ This endpoint deletes an existing entity.
 
 **Path Parameters:**
 
-
-
-* id: ID of the entity to delete.
+- id: ID of the entity to delete.
 
 **Example Request:**
 
 DELETE /api/TestAPI/123
 
-
-
 **2. Directory Structure:**
 
 root folder
 
-│   Program.cs
+│   Program.cs
 
 │
 
 └───Controllers
 
-│   │   TestAPIController.cs
+│   │   TestAPIController.cs
 
-│   
+│   
 
 └───Models
 
-│   │   Models.cs
+│   │   Models.cs
 
-│   
+│   
 
 └───Repositories
 
-    │   IEntityRepository.cs
+    │   IEntityRepository.cs
 
-    │   MockEntityRepository.cs
+    │   MockEntityRepository.cs
 
 All concerns are separated. Namely the API definitions, the data layer, and the models.
 
+- Controllers: Contains controller classes responsible for handling HTTP requests and responses.
 
+- Models: Defines data models used in the application.
 
-* Controllers: Contains controller classes responsible for handling HTTP requests and responses.
-* Models: Defines data models used in the application.
-* Repositories: Contains interfaces and classes for interacting with data repositories.
-* Program.cs: Serves as the entry point of the application and configures services and middleware.
+- Repositories: Contains interfaces and classes for interacting with data repositories.
+
+- Program.cs: Serves as the entry point of the application and configures services and middleware.
 
 **3. Files Overview:**
 
 **TestAPIController.cs:**
 
+- Has all the endpoint definitions.
 
+- Has retry and backoff mechanism.
 
-* Has all the endpoint definitions.
-* Has retry and backoff mechanism.
-* Utilizes the IEntityRepository interface to interact with the data repository. Makes use of the dependency injection feature.
+- Utilizes the IEntityRepository interface to interact with the data repository. Makes use of the dependency injection feature.
 
 **Models.cs:**
 
+- Defines the structure of data models used in the application.
 
+- Includes classes for Entity, Address, Date, Name, and EntityQueryParameters.
 
-* Defines the structure of data models used in the application.
-* Includes classes for Entity, Address, Date, Name, and EntityQueryParameters.
-* Represents the entities stored in the database and query parameters for filtering, sorting, and pagination.
+- Represents the entities stored in the database and query parameters for filtering, sorting, and pagination.
 
 **IEntityRepository.cs:**
 
+- Defines the contract for interacting with data repositories.
 
+- Includes methods for retrieving entities based on query parameters and by ID.
 
-* Defines the contract for interacting with data repositories.
-* Includes methods for retrieving entities based on query parameters and by ID.
-
-
+********
 
 **MockEntityRepository.cs:**
 
+- Provides an implementation of the IEntityRepository interface using mocked data.
 
+- Generates mock entities using the Bogus library.
 
-* Provides an implementation of the IEntityRepository interface using mocked data.
-* Generates mock entities using the Bogus library.
-* Allows for filtering, sorting, and pagination of entities based on query parameters.
-* Has ability to simulate operation failures.
+- Allows for filtering, sorting, and pagination of entities based on query parameters.
+
+- Has ability to simulate operation failures.
 
 **Program.cs:**
 
+- Serves as the entry point of the application.
 
+- Sets up dependency injection for the IEntityRepository interface. Whenever an object of type IEntityRepository is requested an instance of MockEntityRepository is provided (the instance is only created once- it is shared)
 
-* Serves as the entry point of the application.
-* Sets up dependency injection for the IEntityRepository interface. Whenever an object of type IEntityRepository is requested an instance of MockEntityRepository is provided (the instance is only created once- it is shared)
-* Sets up Swagger for API for convenient testing.
+- Sets up Swagger for API for convenient testing.
 
 **4. External Dependencies**
 
